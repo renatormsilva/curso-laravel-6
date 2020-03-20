@@ -14,23 +14,48 @@
 Route::get('/login', function(){
     return 'login';
 })->name('login');
-
-Route::middleware(['auth'])->group(function(){
+/*
+Route::middleware([])->group(function(){
 
     Route::prefix('admin')->group(function(){
-        Route::get('/dashboard', function(){
-            return 'Home admin';
-        });
+
+        Route::namespace('Admin')->group(function(){
+
+            Route::name('admin.')->group(function(){
+                Route::get('/dashboard', 'TesteController@teste')->name('dashboard');
     
-        Route::get('/financeiro', function(){
-            return 'Financeiro admin';
+                Route::get('/financeiro', 'TesteController@teste')->name('financeiro');
+        
+                Route::get('/produtos', 'TesteController@teste')->name('produtos');
+
+                Route::get('/', function(){
+                    return redirect()->route('admin.dashboard');
+                });
+            });
+
+            
         });
-    
-        Route::get('/produtos', function(){
-            return 'Produtos admin';
-        });
+
+        
     });
 
+});
+*/
+
+Route::group([
+    'middleware' => [],
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+], function(){
+    Route::get('/dashboard', 'TesteController@teste')->name('admin.dashboard');
+    
+    Route::get('/financeiro', 'TesteController@teste')->name('admin.financeiro');
+        
+    Route::get('/produtos', 'TesteController@teste')->name('admin.produtos');
+
+    Route::get('/', function(){
+         return redirect()->route('admin.dashboard');
+    })->name('home');
 });
 
 
