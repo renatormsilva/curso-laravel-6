@@ -11,7 +11,7 @@
 |
 */
 
-// Route::resource('products', 'ProductController');
+Route::resource('products', 'ProductController');
 
 /*
 Route::get('products/{id}', 'ProductController@destroy')->name('products.destroy');
