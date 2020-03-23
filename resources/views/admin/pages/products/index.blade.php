@@ -2,7 +2,8 @@
 @section('title', 'Gestão de produtos')
 
 @section('content')
-    <h1> Product List</h1>
+    <h1>Exibindo Produtos</h1>
+    <a href="{{ route('products.create') }}">Cadastrar</a>
     @if (isset($products))
         @foreach ($products as $product)
             
