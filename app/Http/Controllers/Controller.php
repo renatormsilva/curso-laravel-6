@@ -9,12 +9,5 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-
-    public function teste()
-    {;
-        $teste1 = 'Eae pessoal beleza';
-        return view('teste', compact('teste1'));
-    }
-
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }

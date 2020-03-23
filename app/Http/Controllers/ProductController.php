@@ -29,8 +29,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-         //
+    {   
+         $teste = 123;
+         return view('admin.pages.products.index', compact('teste'));
     }
 
     /**
