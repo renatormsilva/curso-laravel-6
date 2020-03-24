@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Cadastrar Novo Produto')
+@section('title', 'Editar Produtos')
 
 @section('content')
-    <h1>Cadastrar novos produtos</h1>
-    <form action=" {{ route('products.store') }} " method="post" enctype="multipart/form-data" >
+    <h1>Editar produto {{$id}} </h1>
+    <form action=" {{ route('products.update', $id ) }} " method="post">
         @csrf
+        @method('PUT')
+        <input type="hidden" name=_method value="PUT">
         <input type="text" name="name" placeholder="Nome:">
         <input type="text" name="description" placeholder="Descrição:">
-        <input type="file" name="photo">
         <button type="submit">Enviar</button>
-        
     </form>
 
 @endsection
